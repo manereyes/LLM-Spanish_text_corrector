@@ -81,6 +81,8 @@ with st.container():
     )
     if st.button("Test Response"):
         with st.spinner("Generating response..."):
-            response = invoke_ai(model, input, temp, mirostat, mirostat_eta, mirostat_tau, num_ctx, top_k, top_p)
+            corrected_text, words_list = invoke_ai(model, input, temp, mirostat, mirostat_eta, mirostat_tau, num_ctx, top_k, top_p)
             st.header("Correcciones gramaticales.")
-            st.write(response)
+            st.write(corrected_text)
+            st.header("Lista de palabras.")
+            st.write(words_list)
